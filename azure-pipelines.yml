@@ -18,5 +18,16 @@ steps:
   inputs:
     SourceFolder: '$(system.defaultworkingdirectory)'
     Contents: |
-     **/*.aar
+     **/*release.aar
     TargetFolder: '$(build.artifactstagingdirectory)'
+
+- task: UniversalPackages@0
+  inputs:
+    command: 'publish'
+    publishDirectory: '$(Build.ArtifactStagingDirectory)'
+    feedsToUsePublish: 'internal'
+    vstsFeedPublish: 'e0256516-4c8d-4265-8edc-b3309388a503/3b62aae3-ca93-461a-9def-24bea0b1fe25'
+    vstsFeedPackagePublish: 'fluentuiandroid'
+    versionOption: 'minor'
+    packagePublishDescription: 'Publishing Fluent Universal Package'
+    publishedPackageVar: 'fluent package'
