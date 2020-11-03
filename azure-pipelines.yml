@@ -17,17 +17,21 @@ steps:
   displayName: 'Copy Files to: $(build.artifactstagingdirectory)'
   inputs:
     SourceFolder: '$(system.defaultworkingdirectory)'
-    Contents: |
-     **/*release.aar
-    TargetFolder: '$(build.artifactstagingdirectory)'
+    Contents: '**/*release.aar'
+    TargetFolder: '$(build.artifactstagingdirectory)/outputs/libs/'
+    CleanTargetFolder: true
+    OverWrite: true
+    flattenFolders: true
+    preserveTimestamp: true
 
 - task: UniversalPackages@0
   inputs:
     command: 'publish'
-    publishDirectory: '$(Build.ArtifactStagingDirectory)'
+    publishDirectory: '$(Build.ArtifactStagingDirectory)/outputs/'
     feedsToUsePublish: 'internal'
     vstsFeedPublish: 'e0256516-4c8d-4265-8edc-b3309388a503/3b62aae3-ca93-461a-9def-24bea0b1fe25'
     vstsFeedPackagePublish: 'fluentuiandroid'
     versionOption: 'minor'
-    packagePublishDescription: 'Publishing Fluent Universal Package'
+    packagePublishDescription: 'Fluent Universal Package'
     publishedPackageVar: 'fluent package'
+  
