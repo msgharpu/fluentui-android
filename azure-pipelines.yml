@@ -9,7 +9,7 @@ steps:
 - task: Gradle@2
   inputs:
     gradleWrapperFile: 'gradlew'
-    tasks: 'assembleRelease'
+    tasks: 'assembleRelease makeUniversalPkg'
     publishJUnitResults: true
     testResultsFiles: '**/TEST-*.xml'
     javaHomeOption: 'JDKVersion'
@@ -18,12 +18,11 @@ steps:
 - task: CopyFiles@2
   displayName: 'Copy Files to: $(build.artifactstagingdirectory)'
   inputs:
-    SourceFolder: '$(system.defaultworkingdirectory)'
-    Contents: '**/*.aar'
-    TargetFolder: '$(build.artifactstagingdirectory)/outputs/libs/'
+    SourceFolder: '$(system.defaultworkingdirectory)/universal'
+    Contents: '**'
+    TargetFolder: '$(build.artifactstagingdirectory)/outputs'
     CleanTargetFolder: true
     OverWrite: true
-    flattenFolders: true
     preserveTimestamp: true
 
 - task: UniversalPackages@0
@@ -33,7 +32,7 @@ steps:
     feedsToUsePublish: 'internal'
     vstsFeedPublish: 'e0256516-4c8d-4265-8edc-b3309388a503/3b62aae3-ca93-461a-9def-24bea0b1fe25'
     vstsFeedPackagePublish: 'fluentuiandroid'
-    versionOption: 'minor'
+    versionOption: 'patch'
     packagePublishDescription: 'Fluent Universal Package'
     publishedPackageVar: 'fluent package'
   
