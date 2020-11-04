@@ -9,7 +9,9 @@ steps:
 - task: Gradle@2
   inputs:
     gradleWrapperFile: 'gradlew'
-    tasks: 'build'
+    tasks: 'assembleRelease'
+    publishJUnitResults: true
+    testResultsFiles: '**/TEST-*.xml'
     javaHomeOption: 'JDKVersion'
     sonarQubeRunAnalysis: false
     
@@ -17,7 +19,7 @@ steps:
   displayName: 'Copy Files to: $(build.artifactstagingdirectory)'
   inputs:
     SourceFolder: '$(system.defaultworkingdirectory)'
-    Contents: '**/*release.aar'
+    Contents: '**/*.aar'
     TargetFolder: '$(build.artifactstagingdirectory)/outputs/libs/'
     CleanTargetFolder: true
     OverWrite: true
