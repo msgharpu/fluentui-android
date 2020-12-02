@@ -31,7 +31,7 @@ steps:
     command: 'publish'
     publishDirectory: '$(Build.ArtifactStagingDirectory)/outputs/'
     feedsToUsePublish: 'internal'
-    vstsFeedPublish: 'e0256516-4c8d-4265-8edc-b3309388a503/3b62aae3-ca93-461a-9def-24bea0b1fe25'
+    vstsFeedPublish: 'fluentuigithubtest'
     vstsFeedPackagePublish: 'fluentuiandroid'
     versionOption: 'patch'
     packagePublishDescription: 'Fluent Universal Package'
