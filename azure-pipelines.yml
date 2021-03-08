@@ -17,7 +17,7 @@ steps:
   inputs:
     SourceFolder: '$(system.defaultworkingdirectory)'
     Contents: |
-     **/*.pom
+     **/*.xml
     TargetFolder: '$(build.artifactstagingdirectory)'
 
 - task: PublishBuildArtifacts@1
