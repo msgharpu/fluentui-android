@@ -52,6 +52,7 @@ task sourceJar(type: Jar) {
     classifier "sources"
 }
 
+project.afterEvaluate {
 publishing {
     repositories {
         maven {
@@ -91,6 +92,7 @@ publishing {
             }
         }
     }
+}
 }
 
 
