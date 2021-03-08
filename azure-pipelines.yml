@@ -6,9 +6,8 @@ pool:
 
 steps:
 - task: Gradle@2
-  displayName: 'gradlew generatePomFileForFluentUIPublication'
+  displayName: 'generatePomFileForFluentUIPublication'
   inputs:
-    gradleWrapperFile: 'gradlew'
     tasks: 'generatePomFileForFluentUIPublication'
     options: '-PappCenterSecret=$(appCenterSecret) -PsigningKeyPassword=$(signingKeyPassword) -PsigningKeyStorePassword=$(signingKeyStorePassword) -PbintrayUser=$(bintrayUser) -PbintrayKey=$(bintrayKey)'
 
