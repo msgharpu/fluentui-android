@@ -76,6 +76,7 @@ publishing {
                 configurations.implementation.allDependencies.each {
                     if (it.group != null && (it.name != null && it.name != "unspecified") && it.version != null) {
                         def dependencyNode = dependenciesNode.appendNode('dependency')
+                        print "group name *** =" + it.group
                         if (it.group.equals('fluentui-android')) {
                             dependencyNode.appendNode('groupId', 'com.microsoft.fluentui')
                             dependencyNode.appendNode('artifactId', it.name)
