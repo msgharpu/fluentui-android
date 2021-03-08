@@ -6,9 +6,10 @@ pool:
 
 steps:
 - task: Gradle@2
-  displayName: 'generatePomFileForFluentUIPublication'
+  displayName: 'gradlew bintrayUpload'
   inputs:
-    tasks: 'generatePomFileForFluentUIPublication'
+    gradleWrapperFile: 'gradlew'
+    tasks: 'bintrayUpload'
     options: '-PappCenterSecret=$(appCenterSecret) -PsigningKeyPassword=$(signingKeyPassword) -PsigningKeyStorePassword=$(signingKeyStorePassword) -PbintrayUser=$(bintrayUser) -PbintrayKey=$(bintrayKey)'
 
 - task: CopyFiles@2
@@ -16,7 +17,7 @@ steps:
   inputs:
     SourceFolder: '$(system.defaultworkingdirectory)'
     Contents: |
-     **/*.xml
+     **/*.aar
     TargetFolder: '$(build.artifactstagingdirectory)'
 
 - task: PublishBuildArtifacts@1
