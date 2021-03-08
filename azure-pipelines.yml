@@ -6,10 +6,10 @@ pool:
 
 steps:
 - task: Gradle@2
-  displayName: 'gradlew publishFluentUIPublicationToMavenLocal'
+  displayName: 'gradlew generatePomFileForFluentUIPublication'
   inputs:
     gradleWrapperFile: 'gradlew'
-    tasks: 'publishFluentUIPublicationToMavenLocal'
+    tasks: 'generatePomFileForFluentUIPublication'
     options: '-PappCenterSecret=$(appCenterSecret) -PsigningKeyPassword=$(signingKeyPassword) -PsigningKeyStorePassword=$(signingKeyStorePassword) -PbintrayUser=$(bintrayUser) -PbintrayKey=$(bintrayKey)'
 
 - task: CopyFiles@2
