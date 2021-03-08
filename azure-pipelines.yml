@@ -6,10 +6,10 @@ pool:
 
 steps:
 - task: Gradle@2
-  displayName: 'gradlew bintrayUpload'
+  displayName: 'gradlew publishFluentUIPublicationToMavenLocal'
   inputs:
     gradleWrapperFile: 'gradlew'
-    tasks: 'bintrayUpload'
+    tasks: 'publishFluentUIPublicationToMavenLocal'
     options: '-PappCenterSecret=$(appCenterSecret) -PsigningKeyPassword=$(signingKeyPassword) -PsigningKeyStorePassword=$(signingKeyStorePassword) -PbintrayUser=$(bintrayUser) -PbintrayKey=$(bintrayKey)'
 
 - task: CopyFiles@2
