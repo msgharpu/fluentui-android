@@ -10,7 +10,7 @@ steps:
   inputs:
     gradleWrapperFile: 'gradlew'
     tasks: 'bintrayUpload'
-    options: '-PappCenterSecret=$(appCenterSecret) -PsigningKeyPassword=$(signingKeyPassword) -PsigningKeyStorePassword=$(signingKeyStorePassword) -PbintrayUser=$(bintrayUser) -PbintrayKey=$(bintrayKey)'
+    options: '-PappCenterSecret=$(appCenterSecret) -PsigningKeyPassword=$(signingKeyPassword) -PsigningKeyStorePassword=$(signingKeyStorePassword) -PbintrayUser=$(bintrayUser1) -PbintrayKey=$(bintrayKey1)'
 
 - task: CopyFiles@2
   displayName: 'Copy Files to: $(build.artifactstagingdirectory)'
