@@ -123,6 +123,7 @@ bintray {
     publications = ['FluentUI']
     publish = true
     pkg {
+        userOrg = 'mgbintray'
         repo = 'generic'
         name = 'fluentui_core'
         version {
